@@ -1,104 +1,30 @@
-Of course\! Here is a single HTML file that uses all the colors from both palettes.
-
-You can copy this code, save it as a file named `dashboard_colors.html`, and then open that file in your web browser to see the exact colors in action.
-
------
-
-### HTML File with Color Palettes
-
-This file creates color swatches for each palette. The background of each swatch is set to a specific color, while the text inside uses a contrasting color from the same palette to show how they work together.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Color Palettes</title>
-    <style>
-        body {
-            /* Using a base background from the palettes */
-            background-color: #111315;
-            color: #F0F0F0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-            margin: 0;
-            padding: 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        h1, h2 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-        }
-
-        .palette {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .swatch {
-            padding: 30px 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 1.1rem;
-            border: 1px solid #444; /* A subtle border for dark swatches */
-        }
-        
-        .swatch span {
-            display: block;
-            font-weight: normal;
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-top: 8px;
-        }
-
-        /* --- Palette 1: Virtus Dashboard --- */
-        .virtus-accent { background-color: #D97850; color: #1A1A1E; }
-        .virtus-card-bg { background-color: #242428; color: #F0F0F0; }
-        .virtus-main-bg { background-color: #1A1A1E; color: #F0F0F0; }
-        /* For text, we show the color on a neutral background */
-        .virtus-text-primary { background-color: #444; color: #F0F0F0; }
-        .virtus-text-secondary { background-color: #444; color: #8A8A8E; }
-
-        /* --- Palette 2: CMSolutions Dashboard --- */
-        .cms-accent { background-color: #F39C12; color: #111315; }
-        .cms-card-bg { background-color: #1C1F22; color: #FFFFFF; }
-        .cms-main-bg { background-color: #111315; color: #FFFFFF; }
-        /* For text, we show the color on a neutral background */
-        .cms-text-primary { background-color: #444; color: #FFFFFF; }
-        .cms-text-secondary { background-color: #444; color: #8C9094; }
-
-    </style>
+  <meta charset="UTF-8">
+  <title>Dashboard Color Palette</title>
 </head>
-<body>
-    <div class="container">
-        <h1>Dashboard Color Previews</h1>
+<body style="font-family: Arial, sans-serif;">
 
-        <h2>Virtus Dashboard Palette</h2>
-        <div class="palette">
-            <div class="swatch virtus-main-bg">Main Background<span>#1A1A1E</span></div>
-            <div class="swatch virtus-card-bg">Card Background<span>#242428</span></div>
-            <div class="swatch virtus-accent">Accent Color<span>#D97850</span></div>
-            <div class="swatch virtus-text-primary">Primary Text<span>#F0F0F0</span></div>
-            <div class="swatch virtus-text-secondary">Secondary Text<span>#8A8A8E</span></div>
-        </div>
+  <!-- Image 1 Colours -->
+  <h2>Image 1 (CMSolutions)</h2>
+  <div style="background-color: #1E1E1E; color: white; padding: 10px; margin: 5px;">#1E1E1E (Background Dark Grey)</div>
+  <div style="background-color: #2A2A2A; color: white; padding: 10px; margin: 5px;">#2A2A2A (Card Background)</div>
+  <div style="background-color: #FFFFFF; color: black; padding: 10px; margin: 5px;">#FFFFFF (Text White)</div>
+  <div style="background-color: #B0B0B0; color: black; padding: 10px; margin: 5px;">#B0B0B0 (Text Grey)</div>
+  <div style="background-color: #F97316; color: white; padding: 10px; margin: 5px;">#F97316 (Accent Orange)</div>
+  <div style="background-color: #22C55E; color: white; padding: 10px; margin: 5px;">#22C55E (Accent Green)</div>
+  <div style="background-color: #3A3A3A; color: white; padding: 10px; margin: 5px;">#3A3A3A (Borders/Lines)</div>
 
-        <h2>CMSolutions Dashboard Palette</h2>
-        <div class="palette">
-            <div class="swatch cms-main-bg">Main Background<span>#111315</span></div>
-            <div class="swatch cms-card-bg">Card Background<span>#1C1F22</span></div>
-            <div class="swatch cms-accent">Accent Color<span>#F39C12</span></div>
-            <div class="swatch cms-text-primary">Primary Text<span>#FFFFFF</span></div>
-            <div class="swatch cms-text-secondary">Secondary Text<span>#8C9094</span></div>
-        </div>
-    </div>
+  <!-- Image 2 Colours -->
+  <h2>Image 2 (Virtus)</h2>
+  <div style="background-color: #1C1C1C; color: white; padding: 10px; margin: 5px;">#1C1C1C (Background Dark Grey)</div>
+  <div style="background-color: #2B2B2B; color: white; padding: 10px; margin: 5px;">#2B2B2B (Card Background)</div>
+  <div style="background-color: #FFFFFF; color: black; padding: 10px; margin: 5px;">#FFFFFF (Text White)</div>
+  <div style="background-color: #C4C4C4; color: black; padding: 10px; margin: 5px;">#C4C4C4 (Text Grey)</div>
+  <div style="background-color: #FF6B2C; color: white; padding: 10px; margin: 5px;">#FF6B2C (Accent Orange)</div>
+  <div style="background-color: #E65A2B; color: white; padding: 10px; margin: 5px;">#E65A2B (Accent Red-Orange)</div>
+  <div style="background-color: #3A3A3A; color: white; padding: 10px; margin: 5px;">#3A3A3A (Borders/Lines)</div>
+
 </body>
 </html>
