@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('discounts', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('profile_picture')->nullable();
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('role')->default('manager');
+            $table->foreignId('product_id')->constrained('products')->onDelete('cascade')->onUpdate('cascade');
+            $table->double('percentage')->default(0);
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('discounts');
     }
 };
