@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignId('sub_category_id')->constrained('sub_categories')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('brand_id')->constrained('brands')->onDelete('cascade')->onUpdate('cascade');
             $table->string('is_new')->default('1')->comment('1: new, 0: not new');
-            $table->string('status')->default('1')->comment('1: active, 0: inactive');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

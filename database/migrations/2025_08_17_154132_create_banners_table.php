@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
             $table->text('image_path')->nullable();
-            $table->string('status')->default('1')->comment('1: active, 0: inactive');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

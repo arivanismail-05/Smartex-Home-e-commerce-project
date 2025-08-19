@@ -1,5 +1,4 @@
-
-<nav class="  fixed w-full z-20 top-0 start-0  ">
+<nav class="  fixed bg-[#111315] w-full z-20 top-0 start-0  ">
   <div class=" mx-4 flex flex-wrap items-center justify-between p-4">
   <div class="flex flex-wrap items-center justify-between gap-20">
    <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -9,17 +8,25 @@
     <div class="rounded-lg px-5 py-1 flex justify-center items-center border  bg-[#242428] border-[#3e3e3f]  w-full md:flex md:items-center md:w-auto" id="navbar-sticky">
         <ul class="flex items-center flex-col p-4 md:p-0 mt-4 font-medium md:space-x-4 rtl:space-x-reverse md:flex-row md:mt-0 ">
         <x-admin-component.nav-link :href="route('admin.dashboard')"  :active="request()->routeIs('admin.dashboard')"  :value="__('Dashboard')" />
-        <x-admin-component.dropdown value="Products" >
-            <x-admin-component.dropdown-nav href="#" :value="__('Product 1')" />
-            <x-admin-component.dropdown-nav href="#" :value="__('Product 2')" />
-            <x-admin-component.dropdown-nav href="#" :value="__('Product 3')" />
+        <x-admin-component.dropdown value="Catalog" >
+            <x-admin-component.dropdown-nav href="{{ route('admin.categories.index') }}" :value="__('Categories')" />
+            <x-admin-component.dropdown-nav href="#" :value="__('Sub-Categories')" />
+            <x-admin-component.dropdown-nav href="#" :value="__('Products')" />
+            <x-admin-component.dropdown-nav href="#" :value="__('Brands')" />
         </x-admin-component.dropdown>
 
-        <x-admin-component.dropdown value="Orders" />
+        <x-admin-component.dropdown value="Sales" >
+            <x-admin-component.dropdown-nav href="#" :value="__('Orders')" />
+            <x-admin-component.dropdown-nav href="#" :value="__('Customers')" />
+        </x-admin-component.dropdown>
 
-        <x-admin-component.dropdown value="Customers" />
+        <x-admin-component.dropdown value="Marketing" >
+            <x-admin-component.dropdown-nav href="#" :value="__('Banners')" />
+            <x-admin-component.dropdown-nav href="#" :value="__('Discounts')" />
+        </x-admin-component.dropdown>
 
-        <x-admin-component.dropdown value="Reports" />
+        {{-- <x-admin-component.nav-link :href="route('admin.site-content')"  :active="request()->routeIs('admin.site-content')"  :value="__('Site Content')" /> --}}
+
         </ul>
     </div>
   </div>

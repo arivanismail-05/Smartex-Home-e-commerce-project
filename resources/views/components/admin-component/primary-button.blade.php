@@ -3,5 +3,4 @@
     {{ $slot }}
 </button>
 
-<h1 class="bg-[#D97850]"></h1>
 
