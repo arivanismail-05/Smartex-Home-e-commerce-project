@@ -1,7 +1,5 @@
 <x-admin-layout>
     <x-admin-component.login-contain>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <div>
         <p class="text-xl font-medium text-center">{{ __('Admin Login') }}</p>
