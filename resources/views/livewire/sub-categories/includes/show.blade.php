@@ -19,6 +19,9 @@
                                         Slug
                                     </th>
                                     <th scope="col" class="px-6 py-3">
+                                        Category
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
                                         Image
                                     </th>
                                     <th scope="col" class="px-6 py-3">
@@ -30,7 +33,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $row )
+                                @foreach ($sub_categories as $row )
                                 <x-admin-component.tr-table>
                                     <td class="px-6 py-4">
                                         {{ $loop->iteration }}
@@ -40,6 +43,9 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ $row->slug }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $row->category->name }}
                                     </td>
                                     <td class="px-6 py-4">
                                         <img src="{{ asset('storage/' . $row->image) }}" alt="{{ $row->name }}" class="object-cover w-12 h-12">
