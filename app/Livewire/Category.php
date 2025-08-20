@@ -42,7 +42,7 @@ class Category extends Component
         ModelCategory::create($validated);
 
         $this->reset('name', 'slug', 'image');
-        session()->flash('success', 'Category created successfully.');
+        flash()->success('Category saved successfully!');
     }
 
     public function delete($id)
@@ -64,6 +64,8 @@ class Category extends Component
             $category->status = !$category->status;
             $category->save();
         }
+        flash()->success('Status updated successfully!');
+
     }
 
     public function edit($id)
@@ -111,7 +113,7 @@ class Category extends Component
         ]);
 
         $this->cancel(); 
-        session()->flash('success', 'Category updated successfully.');
+        flash()->success('Category updated successfully!');
     }
 
     public function cancel()
