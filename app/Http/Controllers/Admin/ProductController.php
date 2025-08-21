@@ -8,12 +8,15 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\SubCategory;
+use App\Trait\UploadFile;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
 use Psy\Sudo;
 
 class ProductController extends Controller
 {
+
+    use UploadFile;
     /**
      * Display a listing of the resource.
      */
@@ -54,11 +57,11 @@ class ProductController extends Controller
         $count_image = 0;
         for($i = 0 ; $i <  count($request->images); $i++){
 
-              ProductImage::create([
-                    'product_id' => $product_id,
-                    'image_path' => $request->images[$i],
-                ]); 
-                $count_image++;
+            ProductImage::create([
+                'product_id' => $product_id,
+                'image_path' => $this->uploadFile($request->images[$i],'storage/product_image'),
+            ]);
+            $count_image++;
         }
 
         $product->update(['image_count' => $count_image]);
