@@ -11,7 +11,7 @@
         <x-admin-component.dropdown value="Catalog" >
             <x-admin-component.dropdown-nav href="{{ route('admin.categories.index') }}" :value="__('Categories')" />
             <x-admin-component.dropdown-nav href="{{ route('admin.sub-categories.index') }}" :value="__('Sub-Categories')" />
-            <x-admin-component.dropdown-nav href="" :value="__('Products')" />
+            <x-admin-component.dropdown-nav href="{{ route('admin.products.index') }}" :value="__('Products')" />
             <x-admin-component.dropdown-nav href="{{ route('admin.brands.index') }}" :value="__('Brands')" />
         </x-admin-component.dropdown>
 

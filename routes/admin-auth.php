@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::prefix('ad_2005_min')->middleware('auth:admin')->group(function () {
     Route::resource('categories', CategoryController::class)->names('admin.categories');
     Route::resource('sub-categories', SubCategoryController::class)->names('admin.sub-categories');
     Route::resource('brands', BrandController::class)->names('admin.brands');
+    Route::resource('products', ProductController::class)->names('admin.products');
 
     Route::post('logout', [LoginController::class, 'destroy'])
         ->name('admin.logout');
