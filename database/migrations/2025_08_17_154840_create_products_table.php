@@ -19,11 +19,11 @@ return new class extends Migration
             $table->double('price');
             $table->double('sale_price')->nullable();
             $table->integer('stock')->default(0);
-            $table->integer('image_count');
+            $table->integer('image_count')->default(0);
             $table->foreignId('sub_category_id')->constrained('sub_categories')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('brand_id')->constrained('brands')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('is_new')->default('1')->comment('1: new, 0: not new');
-            $table->boolean('status')->default(true);
+            $table->boolean('is_new')->default(true);
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

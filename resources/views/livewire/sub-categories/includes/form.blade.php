@@ -9,18 +9,11 @@
 
                       <x-admin-component.form-input wire:model="editingSlug" type="text" id="editingSlug" name="editingSlug" for="editingSlug" label="Slug" placeholder="Enter sub category slug" />
 
-                      <div class="flex flex-col">
-                        <label for="category_id" class="block my-2 text-gray-300">Category</label>
-                      <select wire:model.change="editingCategoryId" name="category_id" id="category_id" class="border border-gray-200 bg-[#111315] rounded-sm focus:border-white focus:ring-white disabled:opacity-50 disabled:pointer-events-none">
-                        <option value=""></option>
+                      <x-admin-component.select-form wire:model="editingCategoryId" label="Category" name="editingCategoryId">
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
-                      </select>
-                        @error('category_id')
-                            <span class="mt-2 text-sm italic text-red-500">{{ $message }}</span>
-                        @enderror
-                      </div>
+                      </x-admin-component.select-form>
 
                        <div class="">
                         <div class="flex items-end content-end justify-between gap-4">
@@ -42,19 +35,13 @@
 
                       <x-admin-component.form-input wire:model="slug" type="text" id="slug" name="slug" for="slug" label="Slug" placeholder="Enter sub category slug" />
 
-                      <div class="flex flex-col">
-                        <label for="category_id" class="block my-2 text-gray-300">Category</label>
-                      <select wire:model.change="category_id" name="category_id" id="category_id" class="border border-gray-200 bg-[#111315] rounded-sm focus:border-white focus:ring-white disabled:opacity-50 disabled:pointer-events-none">
-                        <option value=""></option>
+
+                      <x-admin-component.select-form wire:model="category_id" label="Category" name="category_id">
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
-                      </select>
-                        @error('category_id')
-                            <span class="mt-2 text-sm italic text-red-500">{{ $message }}</span>
-                        @enderror
-                      </div>
-                      
+                      </x-admin-component.select-form>
+
                        <div class="">
                         <div class="flex items-end content-end justify-between gap-4">
                         <x-admin-component.upload-image label="Upload Image" name="image" wire:model="image" accept="image/*" />

@@ -2,15 +2,16 @@
 body.fl-dark .fl-flasher,html.fl-dark .fl-flasher{--background-color:var(--dark-background-color);--text-color:var(--dark-text-color)}.fl-flasher{background-color:var(--background-color);border-bottom:none;-webkit-box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);color:var(--text-color);line-height:1.5;margin:.75em 0;padding:.75em;position:relative;word-break:break-word}.fl-flasher.fl-rtl{border-radius:0 .375em .375em 0}.fl-flasher:not(.fl-rtl){border-radius:.375em 0 0 .375em}.fl-flasher .fl-content{-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:flex}.fl-flasher .fl-icon{font-size:2.5em}.fl-flasher .fl-message,.fl-flasher .fl-title{display:block;line-height:1.25em;margin-left:1em;margin-right:1em}.fl-flasher .fl-title{font-size:1em;font-weight:700}.fl-flasher .fl-message{font-size:.875em;margin-top:.25em}.fl-flasher .fl-close{-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;align-items:center;background-color:transparent;border:none;color:#a8aaab;cursor:pointer;display:-webkit-inline-box;display:-webkit-inline-flex;display:-moz-inline-box;display:inline-flex;font-size:25px;-webkit-box-pack:center;-webkit-justify-content:center;-moz-box-pack:center;justify-content:center;line-height:0;margin:-.5rem;padding:.5rem;position:absolute;right:.5rem;top:1rem;-webkit-transition:color .3s ease,-webkit-transform .3s ease;transition:color .3s ease,-webkit-transform .3s ease;-moz-transition:color .3s ease,transform .3s ease,-moz-transform .3s ease;transition:color .3s ease,transform .3s ease;transition:color .3s ease,transform .3s ease,-webkit-transform .3s ease,-moz-transform .3s ease}.fl-flasher .fl-close:hover{color:#8e9192;-webkit-transform:scale(1.1);-moz-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1)}.fl-flasher.fl-rtl .fl-close{left:.5rem;right:auto}.fl-flasher.fl-success{border-left:.8em solid var(--success-color)}.fl-flasher.fl-success.fl-rtl{border-left:none;border-right:.8em solid var(--success-color)}.fl-flasher.fl-success:not(.fl-rtl){border-left:.8em solid var(--success-color);border-right:none}.fl-flasher.fl-success .fl-title{color:var(--success-color)}.fl-flasher.fl-info{border-left:.8em solid var(--info-color)}.fl-flasher.fl-info.fl-rtl{border-left:none;border-right:.8em solid var(--info-color)}.fl-flasher.fl-info:not(.fl-rtl){border-left:.8em solid var(--info-color);border-right:none}.fl-flasher.fl-info .fl-title{color:var(--info-color)}.fl-flasher.fl-warning{border-left:.8em solid var(--warning-color)}.fl-flasher.fl-warning.fl-rtl{border-left:none;border-right:.8em solid var(--warning-color)}.fl-flasher.fl-warning:not(.fl-rtl){border-left:.8em solid var(--warning-color);border-right:none}.fl-flasher.fl-warning .fl-title{color:var(--warning-color)}.fl-flasher.fl-error{border-left:.8em solid var(--error-color)}.fl-flasher.fl-error.fl-rtl{border-left:none;border-right:.8em solid var(--error-color)}.fl-flasher.fl-error:not(.fl-rtl){border-left:.8em solid var(--error-color);border-right:none}.fl-flasher.fl-error .fl-title{color:var(--error-color)}
 
 
+
 .fl-wrapper {
     position: fixed;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     transition: all 1s ease-in-out;
     width: 24em;
-    z-index: 9999; /* MODIFIED: Ensures it's on top of other elements */
+    z-index: 9999; /* Changed from 10 */
 }
 
 .fl-wrapper[data-position^=top-] {
-    top: 1.5rem; /* MODIFIED: Increased distance from the top */
+    top: 1.5rem; /* Changed from .5em */
 }
