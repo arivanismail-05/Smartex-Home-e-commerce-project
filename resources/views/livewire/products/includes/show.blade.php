@@ -13,6 +13,7 @@
             
            </div>
                 <div class="" wire:poll>
+                    @if($grid_line)
                    <x-admin-component.table>
                             <thead class="text-xs text-gray-100  uppercase bg-[#424246] ">
                                 <tr>
@@ -121,5 +122,79 @@
                                                                
                             </tbody>
                      </x-admin-component.table>
+
+                     @elseif($grid_block)
+                     
+                {{-- <select wire:model="sub_category" name="category" id="category" class="border rounded-md border-[#3e3e3f] bg-[#111315] text-gray-400 hover:bg-[#424246] hover:text-[#F0F0F0] transition-colors duration-150"> --}}
+  
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    @foreach ($products as $item)
+        
+        <div class="flex flex-col bg-[#111315] border border-[#3e3e3f] rounded-lg shadow-sm p-6">
+            
+            <div>
+                <a href="{{ route('admin.products.show', ['product' => $item->id] ) }}">
+                    <h5 class="mb-2 text-2xl font-semibold tracking-tight text-white hover:text-gray-300">{{ $loop->iteration }}. {{ $item->title }}</h5>
+                </a>
+                <p class="mb-4 font-normal text-gray-400 line-clamp-1" title="{{ $item->description }}">
+                    {{ $item->description }}
+                </p>
+            </div>
+                <hr class="border-gray-400">
+
+            <div class="grid grid-cols-3 gap-4 my-4">
+                <div>
+                    <span class="text-xs font-medium text-gray-400 uppercase">Price</span>
+                    <p class="text-lg font-semibold text-white">{{ $item->price_readable }}</p>
                 </div>
+                <div>
+                    <span class="text-xs font-medium text-gray-400 uppercase">Sale Price</span>
+                    <p class="text-lg font-semibold text-red-500">{{ $item->sale_price_readable }}</p>
+                </div>
+                <div>
+                    <span class="text-xs font-medium text-gray-400 uppercase">Images</span>
+                    <p class="text-white">{{ $item->image_count }}</p>
+                </div>
+                <div>
+                    <span class="text-xs font-medium text-gray-400 uppercase">Brand</span>
+                    <p class="text-white truncate">{{ $item->brand->brand_name }}</p>
+                </div>
+                <div>
+                    <span class="text-xs font-medium text-gray-400 uppercase">Sub Category</span>
+                    <p class="text-white truncate">{{ $item->subCategory->name }}</p>
+                </div>
+                
+            </div>
+                            <hr class="border-gray-400">
+
+
+            <div class="mt-auto pt-4 flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    @if($item->status)
+                        <span class="px-2 py-1 text-xs font-medium text-green-400 border border-green-600 rounded bg-green-600/20">Active</span>
+                    @else
+                        <span class="px-2 py-1 text-xs font-medium text-yellow-400 border border-yellow-600 rounded bg-yellow-600/20">Passive</span>
+                    @endif
+                    
+                    <label class="inline-flex items-center cursor-pointer" title="Toggle Is New">
+                        @if ($item->is_new)
+                            <input wire:click="toggleIsNew({{ $item->id }})" type="checkbox" class="sr-only peer" checked>
+                        @else
+                            <input wire:click="toggleIsNew({{ $item->id }})" type="checkbox" class="sr-only peer">
+                        @endif
+                        <div class="relative w-11 h-6 bg-gray-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    </label>
+                </div>
+
+                <a href="{{ route('admin.products.show', ['product' => $item->id] ) }}" class="flex items-center gap-2 text-sm text-gray-300 transition duration-300 hover:text-white">
+                    Details
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+            
+        </div>
+        @endforeach
+        
+</div>
+@endif
 </x-admin-component.container>
