@@ -23,6 +23,10 @@ class Category extends Component
 
     public $search;
 
+    public function mount($search = '')
+    {
+        $this->search = $search;
+    }
 
     public $editingId;
     public $editingName;
@@ -32,6 +36,7 @@ class Category extends Component
 
     public function create()
     {
+
         $validated = $this->validate();
 
         if ($this->image) {

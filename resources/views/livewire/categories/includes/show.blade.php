@@ -5,7 +5,7 @@
            <div>
             <x-admin-component.search wire:model.live.debounce.500ms="search" label="Search" />
            </div>
-                <div class="">
+                <div class=""  wire:poll>
                    <x-admin-component.table>
                             <thead class="text-xs text-gray-100  uppercase bg-[#424246] ">
                                 <tr>

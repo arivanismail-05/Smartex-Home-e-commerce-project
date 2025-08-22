@@ -2,7 +2,7 @@
 
     <div class="mt-24 text-white">
       <div class="flex flex-col w-full">
-        @livewire('category')
+        @livewire('category', ['lazy' => true,'search' => ''])
       </div>
     </div>
     
