@@ -4,19 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\SubCategory;
+use App\Trait\DeleteFile;
 use App\Trait\UploadFile;
-use GuzzleHttp\Handler\Proxy;
-use Illuminate\Http\Request;
-use Psy\Sudo;
+
 
 class ProductController extends Controller
 {
 
     use UploadFile;
+    use DeleteFile;
     /**
      * Display a listing of the resource.
      */
@@ -92,9 +93,19 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateProductRequest $request, string $id)
     {
-        //
+
+        $product = Product::findOrFail($id);
+        $validated = $request->validated();
+        $product->update($validated);
+        $product->status = $request->has('status');
+        $product->is_new = $request->has('is_new');
+
+        $product->save();
+
+    flash()->success('Product updated successfully!');
+    return redirect()->route('admin.products.index');
     }
 
     /**
@@ -102,6 +113,16 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $images = ProductImage::where('product_id', $id)->get();
+
+        foreach ($images as $image) {
+
+            $this->deleteFile(public_path('storage/product_image/'.$image->image_path));
+        }
+
+        $product->delete();
+        flash()->success('Product deleted successfully!');
+        return redirect()->route('admin.products.index');
     }
 }

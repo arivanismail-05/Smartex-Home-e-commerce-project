@@ -3,9 +3,9 @@
     <div class="mt-24 text-white">
       <div class="flex flex-col w-full">
         <div class="flex flex-col p-4 mx-4 gap-1.5">
-          <form action="{{ route('admin.products.update', ['product' => $product->id]) }}" class="space-y-3" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('admin.products.update', ['product' => $product->id]) }}" class="space-y-3" method="POST">
             @csrf
-            @method('PUT')
+            @method('PATCH')
           <x-admin-component.container class="gap-4 rounded-lg h-max">
     
             <div class="flex items-center justify-between">
@@ -76,9 +76,9 @@
                         <div>
                           <label class="inline-flex items-center cursor-pointer" title="Toggle Is New">
                         @if ($product->status)
-                            <input  type="checkbox" class="sr-only peer" checked>
+                            <input  type="checkbox" class="sr-only peer" checked name="status" value="{{ true }}">
                         @else
-                            <input  type="checkbox" class="sr-only peer">
+                            <input  type="checkbox" class="sr-only peer" name="status" value="0">
                         @endif
                         <div class="relative w-11 h-6 bg-gray-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                     </label>
@@ -99,9 +99,9 @@
                         <div>
                           <label class="inline-flex items-center cursor-pointer" title="Toggle Is New">
                         @if ($product->is_new)
-                            <input  type="checkbox" class="sr-only peer" checked>
+                            <input  type="checkbox" class="sr-only peer" checked name="is_new" value="{{ true }}">
                         @else
-                            <input  type="checkbox" class="sr-only peer">
+                            <input  type="checkbox" class="sr-only peer" name="is_new" value="0">
                         @endif
                         <div class="relative w-11 h-6 bg-gray-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
                     </label>
