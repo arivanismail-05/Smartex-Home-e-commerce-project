@@ -127,7 +127,7 @@
                      
                 {{-- <select wire:model="sub_category" name="category" id="category" class="border rounded-md border-[#3e3e3f] bg-[#111315] text-gray-400 hover:bg-[#424246] hover:text-[#F0F0F0] transition-colors duration-150"> --}}
   
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
     @foreach ($products as $item)
         
         <div class="flex flex-col bg-[#111315] border border-[#3e3e3f] rounded-lg shadow-sm p-6">
@@ -156,6 +156,14 @@
                     <p class="text-white">{{ $item->image_count }}</p>
                 </div>
                 <div>
+                    <span class="text-xs font-medium text-gray-400 uppercase">Stock</span>
+                    <p class="text-white">{{ $item->stock }}</p>
+                </div>
+                <div>
+                    <span class="text-xs font-medium text-gray-400 uppercase">Slug</span>
+                    <p class="text-white">{{ $item->slug }}</p>
+                </div>
+                <div class="col-start-1">
                     <span class="text-xs font-medium text-gray-400 uppercase">Brand</span>
                     <p class="text-white truncate">{{ $item->brand->brand_name }}</p>
                 </div>
@@ -168,7 +176,7 @@
                             <hr class="border-gray-400">
 
 
-            <div class="mt-auto pt-4 flex justify-between items-center">
+            <div class="flex items-center justify-between pt-4 mt-auto">
                 <div class="flex items-center gap-4">
                     @if($item->status)
                         <span class="px-2 py-1 text-xs font-medium text-green-400 border border-green-600 rounded bg-green-600/20">Active</span>
@@ -188,7 +196,7 @@
 
                 <a href="{{ route('admin.products.show', ['product' => $item->id] ) }}" class="flex items-center gap-2 text-sm text-gray-300 transition duration-300 hover:text-white">
                     Details
-                    <i class="fa-solid fa-arrow-right"></i>
+                    <i class="fa-solid fa-arrow-right mt-1"></i>
                 </a>
             </div>
             

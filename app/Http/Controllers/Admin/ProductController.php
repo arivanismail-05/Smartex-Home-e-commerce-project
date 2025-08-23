@@ -74,7 +74,7 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::with(['subCategory', 'brand'])->findOrFail($id);
+        $product = Product::with(['subCategory', 'brand', 'images'])->findOrFail($id);
         return view('admin.products.show', compact('product'));
     }
 
@@ -83,7 +83,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::with(['subCategory', 'brand', 'images'])->findOrFail($id);
+        $sub_categories = SubCategory::all();
+        $brands = Brand::all();
+        return view('admin.products.edit', compact('product', 'sub_categories', 'brands'));
     }
 
     /**

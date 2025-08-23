@@ -30,21 +30,21 @@
           <div class="grid gap-2 gap-rows-2">
             <x-admin-component.container class="gap-4 rounded-t-lg h-max">
               <div class="grid grid-cols-3 gap-4 ">
-                <x-admin-component.form-input type="text" id="title" name="title" for="title" label="Product Title" placeholder="Enter product title" /> 
-                <x-admin-component.form-input type="text" id="slug" name="slug" for="slug" label="Product Slug" placeholder="Enter product slug" /> 
-                <x-admin-component.form-input type="number" id="price" name="price" for="price" label="Product Price" placeholder="Enter product price" /> 
-                <x-admin-component.form-input type="number" id="sale_price" name="sale_price" for="sale_price" label="Product Sale Price" placeholder="Enter product sale price" /> 
-                <x-admin-component.form-input type="number" id="stock" name="stock" for="stock" label="Product Stock" placeholder="Enter product stock" /> 
-                <x-admin-component.select-form label="Sub Category" name="sub_category_id">
+                <x-admin-component.form-input value="{{ old('title') }}" type="text" id="title" name="title" for="title" label="Product Title" placeholder="Enter product title" /> 
+                <x-admin-component.form-input value="{{ old('slug') }}" type="text" id="slug" name="slug" for="slug" label="Product Slug" placeholder="Enter product slug" /> 
+                <x-admin-component.form-input value="{{ old('price') }}" type="number" id="price" name="price" for="price" label="Product Price" placeholder="Enter product price" /> 
+                <x-admin-component.form-input value="{{ old('sale_price') }}" type="number" id="sale_price" name="sale_price" for="sale_price" label="Product Sale Price" placeholder="Enter product sale price" /> 
+                <x-admin-component.form-input value="{{ old('stock') }}" type="number" id="stock" name="stock" for="stock" label="Product Stock" placeholder="Enter product stock" /> 
+                <x-admin-component.select-form  label="Sub Category" name="sub_category_id">
                     @foreach ($sub_categories as $sub_category)
-                        <option value="{{ $sub_category->id }}">{{ $sub_category->name }}</option>
+                        <option value="{{ $sub_category->id }}" @selected(old('sub_category_id') == $sub_category->id)>{{ $sub_category->name }}</option>
                     @endforeach
                     
                 </x-admin-component.select-form>
               
                 <x-admin-component.select-form label="Brand" name="brand_id">
                     @foreach ($brands as $brand)
-                        <option value="{{ $brand->id }}">{{ $brand->brand_name }}</option>
+                        <option value="{{ $brand->id }}" @selected(old('brand_id') == $brand->id)>{{ $brand->brand_name }}</option>
                     @endforeach
                 </x-admin-component.select-form>
                 
@@ -53,7 +53,7 @@
             <x-admin-component.container class="gap-4 h-max">
               <div class="grid">
                 <label for="category_id" class="block my-2 text-gray-300">Description</label>
-                <textarea class="col-start-1 col-end-4 border border-gray-200 bg-[#111315] rounded-sm focus:border-white focus:ring-white disabled:opacity-50 disabled:pointer-events-none" name="description" id="" cols="30" placeholder="Enter product description"></textarea>
+                <textarea class="col-start-1 col-end-4 border border-gray-200 bg-[#111315] rounded-sm focus:border-white focus:ring-white disabled:opacity-50 disabled:pointer-events-none" name="description" id="" cols="30" placeholder="Enter product description">{{ old('description') }}</textarea>
                 @error('description')
                   <span class="mt-2 text-sm italic text-red-500">{{ $message }}</span>    
                 @enderror
