@@ -9,15 +9,14 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\SubCategory;
-use App\Trait\DeleteFile;
-use App\Trait\UploadFile;
+
+use Illuminate\Support\Facades\Storage;
 
 
 class ProductController extends Controller
 {
 
-    use UploadFile;
-    use DeleteFile;
+
     /**
      * Display a listing of the resource.
      */
@@ -60,7 +59,7 @@ class ProductController extends Controller
 
             ProductImage::create([
                 'product_id' => $product_id,
-                'image_path' => $this->uploadFile($request->images[$i],'storage/product_image'),
+                'image_path' =>  $request->images[$i]->store('product-image', 'public'),
             ]);
             $count_image++;
         }
@@ -118,11 +117,21 @@ class ProductController extends Controller
 
         foreach ($images as $image) {
 
-            $this->deleteFile(public_path('storage/product_image/'.$image->image_path));
+            Storage::disk('public')->delete($image->image_path);
         }
 
         $product->delete();
         flash()->success('Product deleted successfully!');
         return redirect()->route('admin.products.index');
+    }
+
+
+
+
+    public function images(string $id)
+    {
+        $product = Product::with('images')->findOrFail($id);
+        $images = ProductImage::where('product_id', $id)->get();
+        return view('admin.products.images', compact('product', 'images'));
     }
 }

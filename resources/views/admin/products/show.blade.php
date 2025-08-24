@@ -42,20 +42,23 @@
               <div class="flex flex-col gap-2">
                 <div class="row-span-2">
 
-                <div class="bg-[#424246] border-2 border-dashed border-[#7e7e7e] h-48 w-full flex rounded-md items-center justify-center">
-                  hello
-                </div>
+                @foreach ($product->images as $image)
+                @if($image->image_status)
+                    <div class="bg-[#424246]  h-48  flex rounded-md items-center justify-center">
+                      <img src="{{ asset('storage/' . $image->image_path) }}" alt="{{ $product->title }}" class=" h-full  rounded-md">
+                    </div>
+                  
+                  @endif
+
+                @endforeach
                 </div>
                 <div class="flex gap-2">
-                  <div class="bg-[#424246] border-2 border-dashed border-[#7e7e7e] h-20 w-20 flex rounded-md items-center justify-center">
-                    hello
-                  </div>
-                  <div class="bg-[#424246] border-2 border-dashed border-[#7e7e7e] h-20 w-20 flex rounded-md items-center justify-center">
-                    hello
-                  </div>
-                  <div class="bg-[#424246] border-2 border-dashed border-[#7e7e7e] h-20 w-20 flex rounded-md items-center justify-center">
-                    hello
-                  </div>
+                  @foreach ($product->images as $image)
+                    <div class="bg-[#424246]  h-20 w-20 flex rounded-md items-center justify-center">
+                      <img src="{{ asset('storage/' . $image->image_path) }}" alt="{{ $product->title }}" class="object-cover w-full h-full rounded-md">
+                    </div>
+                  @endforeach
+                  
                 </div>
                 <div>
                   <x-admin-component.div-container label="Image Count">
@@ -63,7 +66,7 @@
                 </x-admin-component.div-container>
                 </div>
                 <div class="flex justify-end mt-2">
-                     <a href="{{ route('admin.products.edit',['product' => $product->id]) }}" class="   items-center py-3  px-8 bg-[#D97850] border border-transparent rounded-md font-semibold text-sm text-white uppercase tracking-widest hover:bg-[#fe976e] focus:bg-[#fe976e] active:bg-[#C36E44] focus:outline-none  focus:ring-2 focus:ring-[#C36E44] focus:ring-offset-2 focus:outline-[#2B2B2B] transition ease-in-out duration-150">Manage Images</a>
+                     <a href="{{ route('admin.products.images',['product' => $product->id]) }}" class="   items-center py-3  px-8 bg-[#D97850] border border-transparent rounded-md font-semibold text-sm text-white uppercase tracking-widest hover:bg-[#fe976e] focus:bg-[#fe976e] active:bg-[#C36E44] focus:outline-none  focus:ring-2 focus:ring-[#C36E44] focus:ring-offset-2 focus:outline-[#2B2B2B] transition ease-in-out duration-150">Manage Images</a>
                 </div>
               </div>
             </x-admin-component.container>

@@ -88,7 +88,7 @@ class Brand extends Component
             if ($brand->brand_logo) {
                 Storage::disk('public')->delete($brand->brand_logo);
             }
-            $imagePath = $this->editingLogo->store('categories', 'public');
+            $imagePath = $this->editingLogo->store('brand', 'public');
         }
 
         $brand->update([

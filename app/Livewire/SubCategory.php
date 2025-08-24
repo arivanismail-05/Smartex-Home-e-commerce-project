@@ -109,7 +109,7 @@ class SubCategory extends Component
             if ($sub_category->image) {
                 Storage::disk('public')->delete($sub_category->image);
             }
-            $imagePath = $this->editingImage->store('categories', 'public');
+            $imagePath = $this->editingImage->store('sub-categories', 'public');
         }
 
         $sub_category->update([

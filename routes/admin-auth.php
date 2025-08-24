@@ -25,6 +25,8 @@ Route::prefix('ad_2005_min')->middleware('auth:admin')->group(function () {
     Route::resource('sub-categories', SubCategoryController::class)->names('admin.sub-categories');
     Route::resource('brands', BrandController::class)->names('admin.brands');
     Route::resource('products', ProductController::class)->names('admin.products');
+    Route::get('products/{product}/images', [ProductController::class, 'images'])
+        ->name('admin.products.images');
 
     Route::post('logout', [LoginController::class, 'destroy'])
         ->name('admin.logout');
