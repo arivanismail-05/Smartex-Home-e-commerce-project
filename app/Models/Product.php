@@ -23,6 +23,11 @@ class Product extends Model
         return $this->hasMany(ProductImage::class);
     }
 
+    public function discount()
+    {
+        return $this->hasOne(Discount::class);
+    }
+
 
     protected $appends = ['price_readable', 'sale_price_readable'];
     public function getPriceReadableAttribute()

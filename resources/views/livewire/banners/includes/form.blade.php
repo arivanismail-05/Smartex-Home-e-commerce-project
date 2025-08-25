@@ -9,7 +9,7 @@
                 <div>
                 <button x-data x-on:click="$dispatch('open-modal')" type="button" class=" space-x-2 items-center py-3  px-4 bg-[#D97850] border border-transparent rounded-md font-semibold text-sm text-white uppercase tracking-widest hover:bg-[#fe976e] focus:bg-[#fe976e] active:bg-[#C36E44] focus:outline-none  focus:ring-2 focus:ring-[#C36E44] focus:ring-offset-2 focus:outline-[#2B2B2B] transition ease-in-out duration-150">
                     <span class="bg-white rounded text-center p-0.5  text-[#D97850]"><i class="fa-solid fa-plus "></i></span>
-                    <span>Add Product</span>
+                    <span>Add Banner</span>
                 </button>
                </div>
         </div>
@@ -31,13 +31,6 @@
     </label>
    @if($imagePaths)
    <div class="italic" wire:loading wire:target="imagePaths">Uploading...</div>
-    {{-- <div class="grid grid-cols-3 gap-2">
-        @foreach ($imagePaths as $image)
-            <div class="w-32 h-32 overflow-hidden rounded">
-                <img src="{{ $image->temporaryUrl() }}" alt="Image Preview" class="object-cover w-full h-full">
-            </div>
-        @endforeach
-    </div> --}}
    @endif
 
     <div class="flex items-center justify-end w-full space-x-2">

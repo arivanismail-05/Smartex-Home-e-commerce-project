@@ -52,6 +52,15 @@ class ProductController extends Controller
             'brand_id' => $validated['brand_id'],
             'description' => $validated['description'],
         ]);
+        $discount = (($product->price - $product->sale_price)/$product->price )* 100;
+        
+        if($discount > 0){
+            $product->discount()->create([
+                'percentage' => round($discount),
+                'start_date' => now(),
+                'end_date' => now()->addDays(30),
+            ]);
+        }
 
         $product_id = $product->id;
         $count_image = 0;
@@ -100,6 +109,14 @@ class ProductController extends Controller
         $product->update($validated);
         $product->status = $request->has('status');
         $product->is_new = $request->has('is_new');
+
+        $discount = (($product->price - $product->sale_price)/$product->price )* 100;
+
+        if($discount > 0){
+            $product->discount()->update([
+                'percentage' => round($discount),
+            ]);
+        }
 
         $product->save();
 
