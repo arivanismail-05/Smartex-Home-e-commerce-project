@@ -17,6 +17,7 @@ return new class extends Migration
             $table->double('percentage')->default(0);
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Brand;
+use App\Models\Discount;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\SubCategory;
@@ -54,7 +55,7 @@ class ProductController extends Controller
         ]);
         $discount = (($product->price - $product->sale_price)/$product->price )* 100;
         
-        if($discount > 0){
+        if($product->sale_price > 0){
             $product->discount()->create([
                 'percentage' => round($discount),
                 'start_date' => now(),
@@ -103,8 +104,9 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, string $id)
     {
-
+        
         $product = Product::findOrFail($id);
+        
         $validated = $request->validated();
         $product->update($validated);
         $product->status = $request->has('status');
@@ -112,10 +114,22 @@ class ProductController extends Controller
 
         $discount = (($product->price - $product->sale_price)/$product->price )* 100;
 
-        if($discount > 0){
-            $product->discount()->update([
-                'percentage' => round($discount),
-            ]);
+        $discountTable = Discount::find($product->id);
+       
+        if($product->sale_price > 0){
+            if(!$discountTable){
+                $product->discount()->create([
+                    'percentage' => round($discount),
+                    'start_date' => now(),
+                    'end_date' => now()->addDays(30),
+                ]);
+            }
+            else{
+                $product->discount()->update([
+                    'percentage' => round($discount),
+                ]);
+            }
+            
         }
 
         $product->save();

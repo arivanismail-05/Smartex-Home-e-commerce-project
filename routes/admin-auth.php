@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::prefix('ad_2005_min')->middleware('auth:admin')->group(function () {
     Route::resource('brands', BrandController::class)->names('admin.brands');
     Route::resource('banners', BannerController::class)->names('admin.banners');
     Route::resource('products', ProductController::class)->names('admin.products');
+    Route::resource('discounts', DiscountController::class)->names('admin.discounts');
     Route::get('products/{product}/images', [ProductController::class, 'images'])
         ->name('admin.products.images');
 

@@ -22,7 +22,7 @@
 
         <x-admin-component.dropdown value="Marketing" >
             <x-admin-component.dropdown-nav href="{{ route('admin.banners.index') }}" :value="__('Banners')" />
-            <x-admin-component.dropdown-nav href="#" :value="__('Discounts')" />
+            <x-admin-component.dropdown-nav href="{{ route('admin.discounts.index') }}" :value="__('Discounts')" />
         </x-admin-component.dropdown>
 
         {{-- <x-admin-component.nav-link :href="route('admin.site-content')"  :active="request()->routeIs('admin.site-content')"  :value="__('Site Content')" /> --}}
