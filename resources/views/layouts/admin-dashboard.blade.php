@@ -12,13 +12,16 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
         <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
+        @livewireStyles()
     </head>
+
     <body class="font-sans antialiased bg-[#111315]">
         @include('layouts.admin-navigation')
         {{ $slot }} 
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+        @livewireScripts()
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
     </body>
 </html>

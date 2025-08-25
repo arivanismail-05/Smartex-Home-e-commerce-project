@@ -21,7 +21,7 @@
         </x-admin-component.dropdown>
 
         <x-admin-component.dropdown value="Marketing" >
-            <x-admin-component.dropdown-nav href="#" :value="__('Banners')" />
+            <x-admin-component.dropdown-nav href="{{ route('admin.banners.index') }}" :value="__('Banners')" />
             <x-admin-component.dropdown-nav href="#" :value="__('Discounts')" />
         </x-admin-component.dropdown>
 
