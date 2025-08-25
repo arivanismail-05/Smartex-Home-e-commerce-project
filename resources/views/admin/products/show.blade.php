@@ -36,7 +36,7 @@
 
           
           <div class="grid grid-cols-2 gap-2">
-            <div class="grid grid-cols-1 grid-rows-2 gap-2">
+            <div class="flex flex-col gap-2">
               <x-admin-component.container class="gap-4 rounded-lg h-max">
 
               <div class="flex flex-col gap-2">
