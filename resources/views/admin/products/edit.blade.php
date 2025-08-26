@@ -86,7 +86,7 @@
                     </div>
                   </div>
                   <div class=" space-y-3 p-4  border border-gray-200 bg-[#111315] rounded-sm focus:border-white focus:ring-white disabled:opacity-50 disabled:pointer-events-none" name="description" id=""  placeholder="Enter product description">
-                    <h2>Visibility</h2>
+                    <h2>New Product</h2>
                     <p class="text-xs text-gray-400">Set up New Product</p>
                     <div class=" flex justify-between font-semibold text-[#F0F0F0] bg-[#424246] p-2 rounded-md w-[250px]">
                         <div>

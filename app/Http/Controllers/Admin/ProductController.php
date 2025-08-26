@@ -65,6 +65,7 @@ class ProductController extends Controller
 
         $product_id = $product->id;
         $count_image = 0;
+        if($request->images !== null){
         for($i = 0 ; $i <  count($request->images); $i++){
 
             ProductImage::create([
@@ -73,6 +74,7 @@ class ProductController extends Controller
             ]);
             $count_image++;
         }
+    }
 
         $product->update(['image_count' => $count_image]);
         flash()->success('Product created successfully!');
