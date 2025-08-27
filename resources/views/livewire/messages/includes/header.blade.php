@@ -1,7 +1,7 @@
 <x-admin-component.container class="gap-4 rounded-t-lg h-max">
     <div class="flex items-center justify-between">
-        <x-admin-component.header title="Discounts" />
-        
+        <x-admin-component.header title="Messages" />
+
 
         <div class="flex items-center space-x-3">
             
@@ -10,8 +10,7 @@
                         <option value="">sort by</option>
                         <option value="latest">Latest</option>
                         <option value="oldest">Oldest</option>
-                        <option value="lowest">Lowest percentage</option>
-                        <option value="highest">Highest percentage</option>
+                        
                     </select>
                 </div>
             </div>

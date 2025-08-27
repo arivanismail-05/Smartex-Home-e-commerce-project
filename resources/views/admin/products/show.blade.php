@@ -45,7 +45,7 @@
                 @foreach ($product->images as $image)
                 @if($image->image_status)
                     <div class="bg-[#424246]  h-48  flex rounded-md items-center justify-center">
-                      <img src="{{ asset('storage/' . $image->image_path) }}" alt="{{ $product->title }}" class=" h-full  rounded-md">
+                      <img src="{{ asset('storage/' . $image->image_path) }}" alt="{{ $product->title }}" class="h-full rounded-md ">
                     </div>
                   
                   @endif
@@ -140,15 +140,8 @@
               </x-admin-component.contain-detail>
             </x-admin-component.container>
             
-            </div>
-
-
-  
-          </div>
-
-
-
-          
+            </div>  
+          </div>        
         </div>
       </div>
     </div>

@@ -4,13 +4,12 @@
            <div class="flex items-center justify-between space-x-4">
              <x-admin-component.search wire:model.live.debounce.200ms="search" label="Search" />
 
-             <div class=" flex items-center space-x-2">
+             <div class="flex items-center space-x-2 ">
                 <div wire:click="sortDir" name="category" id="category" class="border py-2 px-4 cursor-pointer rounded-md border-[#3e3e3f] bg-[#111315] text-gray-400 hover:bg-[#424246] hover:text-[#F0F0F0] transition-colors duration-150 active:bg-[#1f1f21]">
                         <i class="fa-solid fa-sort"></i>
                     </div>
                     <div class="relative flex items-center">
                 <select wire:model.change="sortby" name="category" id="category" class="border rounded-md border-[#3e3e3f] bg-[#111315] text-gray-400 hover:bg-[#424246] hover:text-[#F0F0F0] transition-colors duration-150">
-                        <option value="">Sort By</option>
                         <option value="name">Name</option>
                         <option value="email">Email</option>
                         <option value="phone">Phone</option>
