@@ -16,7 +16,7 @@
         </x-admin-component.dropdown>
 
         <x-admin-component.dropdown value="Sales" >
-            <x-admin-component.dropdown-nav href="#" :value="__('Orders')" />
+            <x-admin-component.dropdown-nav href="{{ route('admin.orders.index') }}" :value="__('Orders')" />
             <x-admin-component.dropdown-nav href="{{ route('admin.users.index') }}" :value="__('Customers')" />
         </x-admin-component.dropdown>
 

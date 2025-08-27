@@ -23,7 +23,7 @@ class User extends Component
     }
     public function render()
     {
-        $users = ModelsUser::where('name', 'like', '%'.$this->search.'%')
+        $users = ModelsUser::with('messages')->where('name', 'like', '%'.$this->search.'%')
         ->orWhere('email', 'like', '%'.$this->search.'%')
         ->orWhere('phone', 'like', '%'.$this->search.'%')
         ->orderBy($this->sortby, $this->sortdir)

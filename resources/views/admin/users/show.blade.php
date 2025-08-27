@@ -60,7 +60,28 @@
             </x-admin-component.container>
              
              <x-admin-component.container class="gap-4 rounded-r-lg ">
-             order
+              <x-admin-component.contain-detail label="Other Info" class="grid-cols-3">
+                  <x-admin-component.div-container label="Details of Messages">
+                    {{ $user->messages->count() }} Messages
+                  </x-admin-component.div-container>
+               </x-admin-component.contain-detail>
+               <div class="grid grid-cols-2 gap-2">
+               @foreach ($user->messages as $message)
+                <x-admin-component.container class="rounded-lg ">
+
+                 <div class="space-y-2 ">
+                    <h4 class="font-medium text-white text-md">Content : </h4>
+                    <textarea class="font-semibold w-full text-[#F0F0F0] bg-[#424246] p-2 w-content field-sizing-content  rounded-md resize-none border-none focus:outline-none read-only" readonly disabled>{{ $message->content }}</textarea>
+                </div>
+
+                <div>
+                    <h4 class="font-medium text-white text-md">Sent at : </h4>
+                    <p class="font-semibold text-gray-300">{{ $message->created_at->format('d M Y, h:i A') }}</p>
+                </div>
+                </x-admin-component.container>
+               @endforeach
+               </div>
+               
             </x-admin-component.container>
 
           </div>

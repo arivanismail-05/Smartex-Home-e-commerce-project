@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\UserController;
@@ -33,6 +34,7 @@ Route::prefix('ad_2005_min')->middleware('auth:admin')->group(function () {
     Route::resource('users', UserController::class)->names('admin.users');
     Route::resource('discounts', DiscountController::class)->names('admin.discounts');
     Route::resource('messages', MessageController::class)->names('admin.messages');
+    Route::resource('orders', OrderController::class)->names('admin.orders');
     Route::get('products/{product}/images', [ProductController::class, 'images'])
         ->name('admin.products.images');
 
