@@ -1,3 +1,6 @@
-<div>
-    {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
+<div class="flex flex-col p-4 mx-4 gap-1.5">
+
+    @include('livewire.users.includes.header')
+    @include('livewire.users.includes.show')
+
 </div>
