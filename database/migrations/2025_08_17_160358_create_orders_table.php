@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('location');
             $table->double('total_price');
             $table->double('delivery_fee')->default(0);
-            $table->boolean('status')->default(true);
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
