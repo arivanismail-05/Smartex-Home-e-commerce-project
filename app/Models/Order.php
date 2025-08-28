@@ -13,6 +13,10 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 
     protected $appends = ['total_price_readable', 'delivery_fee_readable'];
     public function getTotalPriceReadableAttribute()

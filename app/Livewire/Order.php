@@ -19,6 +19,7 @@ class Order extends Component
         $this->sortdir = ($this->sortdir === 'asc') ? 'desc' : 'asc';
     }
 
+
     public function render()
     {
         $orders = ModelsOrder::with('user')
@@ -39,8 +40,8 @@ class Order extends Component
 
         $deliveriedOrders = ModelsOrder::where('status', 1)->count();
         $pendingOrders = ModelsOrder::where('status', 0)->count();
-        $newOrders = ModelsOrder::where('status', 0)
-        ->orWhere('created_at', '>=', now()->subDays(7))
+        $newOrders = ModelsOrder::where('created_at', '>=', now()->subDays(7))
+        ->where('status', 0)
         ->count();
 
         return view('livewire.order', compact('orders', 'deliveriedOrders', 'pendingOrders', 'newOrders'));
