@@ -21,18 +21,7 @@
     </div>
     <div class="">
 
-hello1
-    </div>
-    </div>
-    
-    <x-admin-component.container class="gap-2 rounded-lg ">
-        hello2
-        
-    </x-admin-component.container>
-   
-</div>
-<div class="grid grid-cols-3 row-span-1 gap-4 h-max ">
-    <x-admin-component.container class="col-span-2 gap-2 rounded-lg ">
+<x-admin-component.container class="col-span-2 gap-2 rounded-lg ">
 
         <div class="flex items-center justify-between">
         <h1 class="text-[#D97850] font-semibold text-xl">New Customers</h1>
@@ -94,7 +83,10 @@ hello1
 
         </div>
     </x-admin-component.container>
-    <x-admin-component.container class="col-span-1 gap-2 rounded-lg ">
+    </div>
+    </div>
+    
+     <x-admin-component.container class="col-span-1 gap-2 rounded-lg ">
         <div class="flex items-center justify-between">
         <h1 class="text-[#D97850] font-semibold text-xl">Today Orders</h1>
         <a href="{{ route('admin.orders.index') }}" class="flex items-center content-center justify-center w-8 h-8 transition duration-500 -rotate-90 cursor-pointer rounded-xl hover:translate-x-2 ">
@@ -123,5 +115,7 @@ hello1
         
         
     </x-admin-component.container>
+   
 </div>
+
 </div>

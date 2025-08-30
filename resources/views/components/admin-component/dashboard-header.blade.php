@@ -7,6 +7,6 @@
     </div>
     <div>
     <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $label }}</h3>
-    <p class="mt-1 text-3xl font-bold text-gray-900 dark:text-white">{{ $count }}</p>
+    <p class="mt-1 text-2xl font-bold text-gray-900 dark:text-white">{{ $count }}</p>
     </div>
 </div>
