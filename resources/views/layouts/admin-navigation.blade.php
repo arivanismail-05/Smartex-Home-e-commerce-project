@@ -26,6 +26,7 @@
         </x-admin-component.dropdown>
 
         <x-admin-component.nav-link href="{{ route('admin.messages.index') }}"  :active="request()->routeIs('admin.messages.index')"  :value="__('Site Content')" />
+        <x-admin-component.nav-link href="{{ route('admin.create-admins.index') }}"  :active="request()->routeIs('admin.create-admins.index')"  :value="__('Create Admin')" />
 
         </ul>
     </div>

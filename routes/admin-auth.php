@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CreateAdminController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\Admin\MessageController;
@@ -34,6 +35,7 @@ Route::prefix('ad_2005_min')->middleware('auth:admin')->group(function () {
     Route::resource('discounts', DiscountController::class)->names('admin.discounts');
     Route::resource('messages', MessageController::class)->names('admin.messages');
     Route::resource('orders', OrderController::class)->names('admin.orders');
+    Route::resource('create-admins', CreateAdminController::class)->names('admin.create-admins');
     Route::post('orders/{order}/toggle-status', [OrderController::class, 'toggleStatus'])
         ->name('admin.orders.toggleStatus');
     Route::get('products/{product}/images', [ProductController::class, 'images'])
